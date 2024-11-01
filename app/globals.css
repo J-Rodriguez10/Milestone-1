@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+=======================
+Colors
+=======================
+*/
+:root {
+  --light-blue: #8fe5ff;
+  --dark-blue: #2ebbe5;
+  --darkest-blue: #00094c;
+  --green-yellow: #d7f561;
+  --dark-green-yellow: #9eb540;
+}
+
+/* 
+=======================
+Containers
+=======================
+*/
+
+/* Define CSS variables for responsive breakpoints */
+:root {
+  --mobile-width: 760px;
+  --medium-width: 1000px;
+  --desktop-width: 1200px;
+}
+
+/* 
+.container: 
+A standard responsive container that adjusts its max-width based on the screen size.
+*/
+.container {
+  margin: 0 auto !important;
+  padding: 0;
+
+  @media (max-width: 750px) {
+    padding: 0 1rem;
+  }
+
+  @media (min-width: var(--mobile-width)) {
+    max-width: 750px;
+  }
+
+  @media (min-width: var(--medium-width)) {
+    max-width: 980px;
+  }
+
+  @media (min-width: var(--desktop-width)) {
+    max-width: 1170px;
+  }
+}
+
+/* 
+.container-fullwidth: 
+A full-width container that spans 100% of the viewport width with no padding.
+*/
+.container-fullwidth {
+  margin: 0 auto !important;
+  width: 100%;
+  padding: 0;
+
+  @media (min-width: var(--desktop-width)) {
+    max-width: 1200px;
+  }
+}
+
+/* 
+.container-extra-large: 
+A container with a larger max-width for very large screens.
+*/
+.container-extra-large {
+  width: 100vw;
+  max-width: 1620px;
+  margin: 0 auto !important;
+}
+
+/* 
+.container-fluid-padding: 
+A fluid container with padding on both sides.
+*/
+.container-fluid-padding {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* 
+=======================
+Quick Icons
+=======================
+*/
+
+/*
+Adds a line to the top of a container taking 40% of the width
+*/
+.upperline {
+  position: relative;
+  width: 100%; /* Or your desired width */
+}
+
+.upperline::before {
+  content: "";
+  position: absolute;
+  top: -5%; /* Position at the top */
+  left: 50%; /* Start from the middle */
+  width: 65%; /* Cover 40% of the width */
+  transform: translateX(-75%); /* Center the line horizontally */
+  height: 1.5px; /* Thickness of the line */
+  background-color: var(--light-blue); /* Border color */
+}
+
+.upperline:hover::before {
+  background-color: var(--green-yellow); /* Change color on hover */
+}
+
+/* Apply active color */
+.upperline-active::before {
+  background-color: var(--green-yellow); /* Green color when active */
+}
+
+/* 
+=======================
+Starry Background 
+=======================
+*/
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+.stars {
+  background: #000 url(/images/stars.png) repeat top center;
+  z-index: 0;
+}
+
+.twinkling {
+  background: transparent url(/images/twinkling.png) repeat top center;
+  z-index: 1;
+  animation: move-twink-back 200s linear infinite;
+}
+
+/* .clouds {
+  background: transparent url(/images/clouds.png) repeat top center;
+  z-index: 2;
+  opacity: 0.1;
+  animation: move-clouds-back 200s linear infinite;
+} */
+
+/* .opaque-light-blue {
+  border: 3px solid rgba(143, 229, 255, 0.281);
+  background: rgba(0, 0, 0, 0.248);
+} */
+
+/* 
+=======================
+Loader Spinner
+=======================
+*/
+
+.loader {
+  border: 5px solid #9eb540;
+  border-left-color: #d7f561;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 
+=======================
+Grid Container
+=======================
+*/
+
+
+.gallery-container {
+  display: grid;
+  max-height: 620px;
+  gap: 16px; /* Adjust the gap as needed */
+  overflow-y: scroll;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 400px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* 1 column for xs screens */
+  }
+}
+
+@media (min-width: 401px) and (max-width: 760px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for s screens */
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  .gallery-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for m screens */
+  }
+}
+
+@media (min-width: 1001px) {
+  .gallery-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for l screens */
+  }
+}
