@@ -41,6 +41,7 @@ function PicDetailsPage({ params }: PicDetailsPageProps) {
     return <Loading />
   }
 
+  // Destructuring the picDetails stateVariable for easier access in component.
   const {
     title,
     date,
@@ -49,6 +50,8 @@ function PicDetailsPage({ params }: PicDetailsPageProps) {
     copyright: author,
     media_type
   } = picDetails
+
+  // Checking to see if media is either an image or video. This will change how the component is structured.
   const isImage = media_type === "image"
   const isVideo = media_type === "video"
 
@@ -59,7 +62,7 @@ function PicDetailsPage({ params }: PicDetailsPageProps) {
         <main className="flex h-auto min-h-full w-full items-center justify-center pb-[3rem] pt-[6rem]">
           {/* Justify Between Div */}
           <div className="flex min-h-full w-full items-center gap-[1rem] m:flex-col m:gap-[2rem] m:mt-[3rem]">
-            {/* Image Details */}
+            {/* Left container - Image Details */}
             <article className="flex min-h-full max-w-[45%] flex-col gap-[1rem] m:min-w-full">
               {/* Title */}
               <h2 className="text-[2rem] font-[600] text-light-blue">
@@ -86,8 +89,9 @@ function PicDetailsPage({ params }: PicDetailsPageProps) {
               </div>
             </article>
 
-            {/* Media Display (Image or Video) */}
+            {/* Right container - Media Display (Image or Video) */}
             <aside className="relative flex h-auto min-h-[70vh] min-w-[550px] w-[50vw] items-center justify-center bg-black m:min-w-full">
+              {/* Displaying either an Image or iframe based on media type */}
               {isImage ? (
                 <Image
                   fill

@@ -22,6 +22,8 @@ const config: Config = {
         "green-yellow": "#D7F561",
         "opaque-green-yellow": "rgba(215, 245, 97, 0.515)",
         "dark-green-yellow": "#9EB540",
+    
+      
       },
       screens: {
         xs:  { max: "400px" },
@@ -39,3 +41,6 @@ export default config;
 // --mobile-width: 760px;
 // --medium-width: 1000px;
 // --desktop-width: 1200px;
+
+
+

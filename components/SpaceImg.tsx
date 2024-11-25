@@ -30,7 +30,7 @@ function SpaceImg({ url, title, date, media_type }: SpaceImgProps) {
 
   return (
     <Link
-      title="Click on media to go to details page"
+      title="Clicking on the media will take you to the details page."
       href={`/gallery/${date}`}
       passHref
     >

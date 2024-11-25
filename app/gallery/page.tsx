@@ -7,8 +7,7 @@ import Spinner from "@/components/Spinner"
 import GalleryContent from "@/components/GalleryContent"
 import { ImageData } from "@/util/interfaces"
 import { API_KEY } from "@/util/config"
-import { getDateRange, getMonthName } from "@/util/utillity"
-
+import { getDateRange, getMonthName } from "@/util/utility"
 
 function GalleryPage() {
   const [imagesData, setImagesData] = useState<ImageData[]>([])
@@ -28,7 +27,7 @@ function GalleryPage() {
 
   // This function fetches images from NASA's API
   async function fetchImages() {
-    setLoading(true) 
+    setLoading(true)
 
     // Get the date range for a particular month
     const [startDate, endDate] = getDateRange(currentYear, currentMonth)
@@ -43,7 +42,7 @@ function GalleryPage() {
       console.error("Error fetching the data ", err)
     } finally {
       // Set loading to false after fetching is complete
-      setLoading(false);
+      setLoading(false)
     }
   }
 
@@ -75,13 +74,20 @@ function GalleryPage() {
       {/* Starry Background */}
       <div className="stars"></div>
       <div className="twinkling"></div>
-    
+
       <div className="container relative z-10 flex h-full justify-center">
-        <main className="mt-[13rem] w-full max-w-[95%]">
+        <main className="mt-[10rem] w-full max-w-[95%]">
+          
           {/* Header */}
-          <h2 className="text-center text-[3rem] font-[600] text-light-blue s:text-[2rem] s:mb-[1.8rem]">
+          <h2 className="text-center text-[3rem] font-[600] text-light-blue s:mb-[1.8rem] s:text-[2rem]">
             {`Photos From: ${getMonthName(currentMonth)}, ${currentYear}`}
           </h2>
+
+          <p className="my-[2rem] text-center text-light-blue">
+            Click an image to view more details, and use the &apos;Prev
+            Month&apos; and &apos;Next Month&apos; buttons to browse pictures
+            from previous or next months.
+          </p>
 
           {/* Pagination Buttons */}
           <div className="mb-[3rem] flex w-full justify-between">
@@ -105,4 +111,4 @@ function GalleryPage() {
   )
 }
 
-export default GalleryPage;
+export default GalleryPage

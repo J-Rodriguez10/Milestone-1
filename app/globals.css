@@ -30,7 +30,7 @@ Containers
 
 /* 
 .container: 
-A standard responsive container that adjusts its max-width based on the screen size.
+A standard responsive container that adjusts its max-width based on the screen size and keep the same  max-width throughout the project.
 */
 .container {
   margin: 0 auto !important;
@@ -90,7 +90,7 @@ A fluid container with padding on both sides.
 
 /* 
 =======================
-Quick Icons
+CSS PseudoClass Icons
 =======================
 */
 
@@ -171,17 +171,6 @@ Starry Background
   animation: move-twink-back 200s linear infinite;
 }
 
-/* .clouds {
-  background: transparent url(/images/clouds.png) repeat top center;
-  z-index: 2;
-  opacity: 0.1;
-  animation: move-clouds-back 200s linear infinite;
-} */
-
-/* .opaque-light-blue {
-  border: 3px solid rgba(143, 229, 255, 0.281);
-  background: rgba(0, 0, 0, 0.248);
-} */
 
 /* 
 =======================

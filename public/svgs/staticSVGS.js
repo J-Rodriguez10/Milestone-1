@@ -1,3 +1,9 @@
+/**
+ * SVG Assets File
+ * 
+ * This file contains reusable SVG components for easy exporting and consistent usage across the application.
+ * 
+ */
 
 export const glitterSVG = (<svg
   xmlns="http://www.w3.org/2000/svg"

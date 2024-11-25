@@ -5,6 +5,7 @@ interface GalleryContentProps {
   imagesData: ImageData[]
 }
 
+// This component is displayed in the Gallery's Page
 function GalleryContent({ imagesData }: GalleryContentProps) {
   return (
     <div className="gallery-container">

@@ -8,9 +8,9 @@ function HomePage() {
   const todaysDate: string = new Date().toLocaleDateString("en-CA")
 
   return (
-    <div className="relative z-[0] h-screen w-screen  bg-custom-gradient-dark-blue overflow-hidden">
+    <div className="relative z-[0] h-screen w-screen overflow-hidden bg-custom-gradient-dark-blue">
       {/* Planets svg */}
-      <div className="s:hidden absolute bottom-[-30%] right-[-15%] z-[-1] h-[50%] w-[600px] scale-[3.25]">
+      <div className="absolute bottom-[-30%] right-[-15%] z-[-1] h-[50%] w-[600px] scale-[3.25] s:hidden">
         {planetsSVG}
       </div>
 
@@ -34,18 +34,27 @@ function HomePage() {
               {" "}
               Astronomy Picture of the Day
             </span>{" "}
-            to dive deeper into the cosmos.
+            to dive deeper into the cosmos. <br />
+            Data sourced from{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://api.nasa.gov/"
+              className="cursor-pointer text-dark-green-yellow hover:text-green-yellow"
+            >
+              NASA&apos;s APIs!
+            </a>
           </p>
 
           {/* CTA section */}
           <section className="w-[385px]">
-            {/* no login required */}
+            {/* "No Login Required" Container */}
             <div className="flex w-[100%] items-center justify-center gap-[.5rem] py-[1rem] text-dark-green-yellow">
               <Glitter variant="greenYellow" />
               No Login Required
               <Glitter variant="greenYellow" />
             </div>
-            {/* cta buttons */}
+            {/* CTA buttons */}
             <div className="mt-[1rem] flex gap-[4.5rem] pl-[.5rem]">
               <Button href={`/gallery/${todaysDate}`} variant="greenYellow">
                 Pic of The Day

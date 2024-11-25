@@ -1,3 +1,14 @@
+/**
+ * Glitter Component
+ * 
+ * This component renders a star-like SVG shape with a customizable color variant.
+ * 
+ * Props:
+ * - `variant` (optional): Specifies the color of the glitter. Can be "blue" (default) or "greenYellow".
+ * 
+ * The color is determined by the `variants` mapping and applied to the SVG's `fill` attribute.
+ */
+
 interface GlitterProps {
   variant?: "blue" | "greenYellow"
 }

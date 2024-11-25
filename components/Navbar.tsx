@@ -13,15 +13,15 @@ function Navbar() {
   const isActiveLink = (path: string) => pathname === path
 
   return (
-    <nav className="s:block container absolute left-0 right-0 top-[3rem] z-[99] flex w-full items-center justify-between bg-transparent text-[0.85rem] font-[400] text-light-blue">
+    <nav className="container absolute left-0 right-0 top-[2.5rem] z-[99] flex w-full items-center justify-between bg-transparent text-[0.85rem] font-[400] text-light-blue s:block">
       {/* Logo */}
-      <p className="gap-[.5rem]font-[600] flex items-center">
+      <p className="gap-[.5rem]font-[600] flex items-center m:mb-[0.5rem] m:text-[1.05rem]">
         <Glitter />
         AstroHub
       </p>
 
       {/* Navlinks */}
-      <ul className="s:gap-[0.8rem] s:right-0 s:justify-end s:mt-[10px] relative flex h-[2rem] gap-[2.75rem] space-x-4">
+      <ul className="relative flex h-[2rem] gap-[1.8rem] space-x-4 s:right-0 s:mt-[10px] s:justify-end s:gap-[0.8rem] m:text-[0.7rem] m:gap-[0.65rem] ">
         <li>
           <Link href="/" passHref>
             <span
@@ -30,6 +30,28 @@ function Navbar() {
               }`}
             >
               Home
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/asteroids" passHref>
+            <span
+              className={`hover:text-green-yellow ${
+                isActiveLink("/asteroids") ? "text-green-yellow" : ""
+              }`}
+            >
+              Asteroids
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/alerts" passHref>
+            <span
+              className={`hover:text-green-yellow ${
+                isActiveLink("/alerts") ? "text-green-yellow" : ""
+              }`}
+            >
+              Alerts
             </span>
           </Link>
         </li>
@@ -46,16 +68,39 @@ function Navbar() {
             </span>
           </Link>
         </li>
+
         <li>
           <Link href={`/gallery/${todaysDate}`} passHref>
             <span
-              className={`hover:text-green-yellow ${
+              className={`inline-block max-w-[73px] hover:text-green-yellow ${
                 isActiveLink(`/gallery/${todaysDate}`)
                   ? "text-green-yellow"
                   : ""
               }`}
             >
               Picture of the Day
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/mars-weather" passHref>
+            <span
+              className={`inline-block max-w-[73px] hover:text-green-yellow ${
+                isActiveLink("/mars-weather") ? "text-green-yellow" : ""
+              }`}
+            >
+              Mars ForeCast
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/astronauts" passHref>
+            <span
+              className={`inline-block max-w-[80px] hover:text-green-yellow ${
+                isActiveLink("/astronauts") ? "text-green-yellow" : ""
+              }`}
+            >
+              People Currently In Space
             </span>
           </Link>
         </li>
