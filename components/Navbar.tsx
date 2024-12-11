@@ -1,111 +1,79 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useState } from "react"
 
 import Glitter from "./Glitter"
+import NavLink from "./NavLink"
+import ToggleMenuIcon from "./ToggleMenuIcon"
+import MobileNavMenu from "./MobileNavMenu"
 
 function Navbar() {
-  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+  function toggleMenu() {
+    setIsMenuOpen(prev => !prev)
+  }
+
+  function closeMenu() {
+    setIsMenuOpen(false)
+  }
+
   const todaysDate: string = new Date().toLocaleDateString("en-CA")
 
-  // Checking if link is active to apply active link styles
-  const isActiveLink = (path: string) => pathname === path
-
   return (
-    <nav className="container absolute left-0 right-0 top-[2.5rem] z-[99] flex w-full items-center justify-between bg-transparent text-[0.85rem] font-[400] text-light-blue s:block">
-      {/* Logo */}
-      <p className="gap-[.5rem]font-[600] flex items-center m:mb-[0.5rem] m:text-[1.05rem]">
-        <Glitter />
-        AstroHub
-      </p>
+    <>
+      <nav className="container absolute left-0 right-0 z-[99] flex w-full items-center justify-between bg-transparent !pt-[2rem] text-[0.8rem] font-[300] text-light-blue">
+        {/* Logo */}
+        <p className="flex h-full items-center gap-[.5rem] font-[500] m:text-[1.05rem]">
+          <Glitter />
+          AstroHub
+        </p>
 
-      {/* Navlinks */}
-      <ul className="relative flex h-[2rem] gap-[1.8rem] space-x-4 s:right-0 s:mt-[10px] s:justify-end s:gap-[0.8rem] m:text-[0.7rem] m:gap-[0.65rem] ">
-        <li>
-          <Link href="/" passHref>
-            <span
-              className={`hover:text-green-yellow ${
-                isActiveLink("/") ? "text-green-yellow" : ""
-              }`}
-            >
-              Home
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/asteroids" passHref>
-            <span
-              className={`hover:text-green-yellow ${
-                isActiveLink("/asteroids") ? "text-green-yellow" : ""
-              }`}
-            >
-              Asteroids
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/alerts" passHref>
-            <span
-              className={`hover:text-green-yellow ${
-                isActiveLink("/alerts") ? "text-green-yellow" : ""
-              }`}
-            >
-              Alerts
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/gallery" passHref>
-            <span
-              className={`upperline hover:text-green-yellow ${
-                pathname === "/gallery"
-                  ? "upperline-active text-green-yellow"
-                  : ""
-              }`}
-            >
-              Gallery
-            </span>
-          </Link>
-        </li>
-
-        <li>
-          <Link href={`/gallery/${todaysDate}`} passHref>
-            <span
-              className={`inline-block max-w-[73px] hover:text-green-yellow ${
-                isActiveLink(`/gallery/${todaysDate}`)
-                  ? "text-green-yellow"
-                  : ""
-              }`}
-            >
+        {/* Navlinks for larger screens */}
+        <ul className="relative flex h-[2rem] items-center gap-[1.8rem] space-x-4 s:right-0 s:mt-[10px] s:hidden s:justify-end s:gap-[0.8rem] m:gap-[0.65rem] m:text-[0.7rem]">
+          <li>
+            <NavLink href="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink href="/asteroids">Asteroids</NavLink>
+          </li>
+          <li>
+            <NavLink href="/alerts">Alerts</NavLink>
+          </li>
+          <li>
+            <NavLink href="/gallery">Gallery</NavLink>
+          </li>
+          <li>
+            <NavLink href={`/gallery/${todaysDate}`}>
               Picture of the Day
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/mars-weather" passHref>
-            <span
-              className={`inline-block max-w-[73px] hover:text-green-yellow ${
-                isActiveLink("/mars-weather") ? "text-green-yellow" : ""
-              }`}
-            >
+            </NavLink>
+          </li>
+          <li>
+            <NavLink href="/mars-weather" className="upperline">
               Mars ForeCast
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/astronauts" passHref>
-            <span
-              className={`inline-block max-w-[80px] hover:text-green-yellow ${
-                isActiveLink("/astronauts") ? "text-green-yellow" : ""
-              }`}
-            >
-              People Currently In Space
-            </span>
-          </Link>
-        </li>
-      </ul>
-    </nav>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink href="/astronauts">People In Space</NavLink>
+          </li>
+        </ul>
+
+        {/* Navlinks Toggle Menu Button for mobile */}
+        <button
+          className="hidden text-light-blue s:block"
+          title="Click on button to reveal navigation links menu"
+          onClick={toggleMenu}
+        >
+          <ToggleMenuIcon />
+        </button>
+      </nav>
+      {/* NavLinks Menu for mobile (slides from the left of the screen) */}
+      <MobileNavMenu
+        isMenuOpen={isMenuOpen}
+        closeMenu={closeMenu}
+        todaysDate={todaysDate}
+      />
+    </>
   )
 }
 

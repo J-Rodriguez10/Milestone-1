@@ -20,7 +20,7 @@ function Button({
   
   // Define button styles based on variant
   const baseStyles =
-    "py-2 px-4 text-[1rem] font-[600] min-w-[146px] rounded-[3px]";
+    "py-2 px-4 text-[1rem] font-[600] rounded-[3px]";
   const variantStyles: Record<string, string> = {
     transparent:
       "bg-transparent border-[1px] border-light-blue text-light-blue hover:bg-light-blue hover:text-darkest-blue",

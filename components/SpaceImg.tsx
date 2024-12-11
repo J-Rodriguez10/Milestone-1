@@ -48,6 +48,9 @@ function SpaceImg({ url, title, date, media_type }: SpaceImgProps) {
           // Display image if media type is 'image'
           <Image
             fill
+            sizes="(max-width: 768px) 100vw, 
+                 (max-width: 1200px) 50vw, 
+                 33vw"
             className="absolute z-[0] object-cover"
             quality={0}
             alt={title}

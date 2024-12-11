@@ -3,27 +3,10 @@
 import { useEffect, useState } from "react"
 
 import RotatingPlanet from "@/components/RotatingPlanet"
-import { fetchMarsWeather } from "@/util/api-fetch"
+// import { fetchMarsWeather } from "@/util/api-fetch"
 import StarryBackground from "@/components/StarryBackground"
+import { fetchMarsWeather, MarsWeatherData } from "@/util/microservices/microserviceD"
 
-interface Wind {
-  speed: number
-  direction: string
-}
-
-interface Temperature {
-  min: number
-  max: number
-  average: number
-}
-
-interface MarsWeatherData {
-  sol: string
-  temperature: Temperature
-  pressure: number
-  wind: Wind
-  season: string
-}
 
 function MarsWeatherPage() {
   const [data, setData] = useState<MarsWeatherData[] | null>(null)
@@ -32,7 +15,7 @@ function MarsWeatherPage() {
   useEffect(() => {
     console.log("Fetching...")
     const fetchData = async () => {
-      const res = await fetchMarsWeather()
+      const res = await fetchMarsWeather() // ^ MICROSERVICE D
       console.log("Fetched Results:", res)
       setData(res)
     }

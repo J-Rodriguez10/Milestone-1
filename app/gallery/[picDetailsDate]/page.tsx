@@ -59,7 +59,7 @@ function PicDetailsPage({ params }: PicDetailsPageProps) {
     <div className="relative z-[0] h-auto min-h-screen w-screen overflow-hidden bg-custom-gradient-dark-blue">
       <div className="container h-auto min-h-full">
         {/* Page's Main Content */}
-        <main className="flex h-auto min-h-full w-full items-center justify-center pb-[3rem] pt-[6rem]">
+        <main className="flex h-auto min-h-full w-full items-center justify-center pb-[3rem] pt-[8rem]">
           {/* Justify Between Div */}
           <div className="flex min-h-full w-full items-center gap-[1rem] m:flex-col m:gap-[2rem] m:mt-[3rem]">
             {/* Left container - Image Details */}

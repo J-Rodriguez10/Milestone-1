@@ -5,47 +5,27 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 import RotatingPlanet from "@/components/RotatingPlanet"
-import { fetchAsteroids } from "@/util/api-fetch"
+// import { fetchAsteroids } from "@/util/api-fetch"
 import { getTodaysDate } from "@/util/utility"
 import StarryBackground from "@/components/StarryBackground"
-
-// Individual Asteroid Data
-type Asteroid = {
-  name: string // Name of the asteroid
-  estimated_diameter: {
-    estimated_diameter_min: number // Minimum estimated diameter in kilometers
-    estimated_diameter_max: number // Maximum estimated diameter in kilometers
-  }
-  is_potentially_hazardous: boolean // Indicates if the asteroid is potentially hazardous
-  close_approach_data: {
-    close_approach_date: string // Date of the asteroid's closest approach (YYYY-MM-DD)
-    relative_velocity: {
-      kilometers_per_hours: string // Relative velocity in kilometers per hour
-    }
-    miss_distance: {
-      kilometers: string // Miss distance in kilometers
-    }
-  }
-  icon_url: string // URL for the asteroid icon image
-}
-
-interface AsteroidData {
-  date: string
-  asteroids: Asteroid[]
-}
+import {
+  Asteroid,
+  AsteroidResponse,
+  fetchAsteroids
+} from "@/util/microservices/microserviceA"
 
 function AsteroidsPage() {
   const [selectedAsteroid, setSelectedAsteroid] = useState<Asteroid | null>(
     null
   )
-  const [data, setData] = useState<AsteroidData | null>(null)
+  const [data, setData] = useState<AsteroidResponse | null>(null)
   const today = getTodaysDate()
 
   useEffect(() => {
     // Fetch asteroid data for a specific date range
     console.log("Fetching...")
     const fetchData = async () => {
-      const res = await fetchAsteroids(today)
+      const res = await fetchAsteroids(today) //^  MICROSERVICE A
       console.log("Fetched Results:", res)
       setData(res)
     }
@@ -60,7 +40,6 @@ function AsteroidsPage() {
 
   return (
     <div className="min-w-screen relative h-auto min-h-screen overflow-hidden">
-      
       {/* Main Content Container */}
       <div className="container relative z-20 flex min-h-screen">
         <main className="flex min-h-[750px] min-w-full justify-between gap-[20px] pt-[10rem] font-[300] text-dark-blue s:flex-col s:pb-[2rem]">
@@ -175,7 +154,7 @@ function AsteroidsPage() {
                     <span className="text-light-blue">
                       {Number(
                         selectedAsteroid.close_approach_data.relative_velocity
-                          .kilometers_per_hours
+                          .kilometers_per_hour
                       ).toLocaleString()}{" "}
                       km/h
                     </span>

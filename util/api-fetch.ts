@@ -1,5 +1,5 @@
 
-
+//MICROSERVICE A
 export async function fetchAsteroids(date: string) {
   try {
     // Construct the query parameters
@@ -25,6 +25,7 @@ export async function fetchAsteroids(date: string) {
   }
 }
 
+//MICROSERVICE B
 export async function fetchAstronautsInSpace() {
     try {
       const response = await fetch("http://localhost:2000/astronauts"); // URL of your new /space route
@@ -40,7 +41,8 @@ export async function fetchAstronautsInSpace() {
 
 }
 
-export async function fetchDonkiNotifications(type = "all") {
+//MICROSERVICE C
+export async function fetchDONKINotifications(type = "all") {
   try {
     // Call the /donki-notifications endpoint on your Express backend
     const response = await fetch(`http://localhost:3000/donki-notifications?type=${type}`);
@@ -63,6 +65,7 @@ export async function fetchDonkiNotifications(type = "all") {
   }
 }
 
+//MICROSERVICE D
 export async function fetchMarsWeather() {
   try {
     // Call the /mars-weather endpoint on your Express backend

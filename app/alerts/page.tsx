@@ -3,25 +3,18 @@
 import { useEffect, useState } from "react"
 
 import RotatingPlanet from "@/components/RotatingPlanet"
-import { fetchDonkiNotifications } from "@/util/api-fetch"
+// import { fetchDONKIotifications } from "@/util/api-fetch"
 import { convertTimestampToReadableDate } from "@/util/utility"
 import StarryBackground from "@/components/StarryBackground"
+import { EnrichedDONKINotification, fetchDONKINotifications } from "@/util/microservices/microserviceC"
 
-interface Alert {
-  messageType: string // Type of the message (e.g., CME)
-  messageID: string // Unique identifier for the message
-  messageURL: string // URL to view the full message
-  messageIssueTime: string // Time the message was issued (ISO 8601 format)
-  messageBody: string // Detailed body of the message
-  fullName: string // Full name of the phenomenon
-  description: string // Description of the phenomenon
-}
+
 
 function AlertsPage() {
-  const [selectedAlert, setSelectedAlert] = useState<Alert | null>(null)
-  const [data, setData] = useState<Alert[] | null>(null)
+  const [selectedAlert, setSelectedAlert] = useState<EnrichedDONKINotification | null>(null)
+  const [data, setData] = useState<EnrichedDONKINotification[] | null>(null)
 
-  function handleAlertClick(alert: Alert) {
+  function handleAlertClick(alert: EnrichedDONKINotification) {
     setSelectedAlert(alert)
   }
 
@@ -29,7 +22,7 @@ function AlertsPage() {
     // Fetch Alerts Data
     console.log("Fetching...")
     const fetchData = async () => {
-      const res = await fetchDonkiNotifications()
+      const res = await fetchDONKINotifications() //^  MICROSERVICE C
       console.log("Fetched Results:", res)
       setData(res)
     }

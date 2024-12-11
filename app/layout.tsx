@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "AstroHub: Explore the Galaxies",
+  title: "AstroHub: Explore the ",
   description: "Portfolio Project by Jesus Rodriguez, using NASA's APIs",
 };
 

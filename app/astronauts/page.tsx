@@ -5,31 +5,20 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 
 import RotatingPlanet from "@/components/RotatingPlanet"
-import { fetchAstronautsInSpace } from "@/util/api-fetch"
+// import { fetchAstronautsInSpace } from "@/util/api-fetch"
 import StarryBackground from "@/components/StarryBackground"
+import { AstronautData, fetchAstronautsInSpace } from "@/util/microservices/microserviceB"
 
 type SelectedSpacecraft = {
   craft: string
   crew: string[]
 }
 
-type Spacecraft = {
-  craft: string // Allows any spacecraft name
-  crew: string[] // Array of crew members
-  icon: string // URL for the icon
-}
-// Interface for the data structure
-interface SpaceData {
-  number_of_people: number
-  spacecrafts: Spacecraft[] // Array of spacecraft objects
-  message: string
-}
-
 function AstronautsPage() {
   const [selectedSpacecraft, setSelectedSpacecraft] =
     useState<SelectedSpacecraft | null>(null)
 
-  const [data, setData] = useState<SpaceData | null>(null)
+  const [data, setData] = useState<AstronautData| null>(null)
 
   // Updates the state with the clicked spacecraft
   function handleIconClick(spacecraft: SelectedSpacecraft) {
@@ -40,7 +29,7 @@ function AstronautsPage() {
   useEffect(() => {
     console.log("Fetching...")
     const fetchData = async () => {
-      const res = await fetchAstronautsInSpace()
+      const res = await fetchAstronautsInSpace();
       console.log("Fetched Results:", res)
       setData(res)
     }

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   images: {
     domains: [
       "apod.nasa.gov",
@@ -9,8 +10,8 @@ const nextConfig = {
       "www.picng.com",
       "cdn-icons-png.flaticon.com",
       "static.vecteezy.com",
-    ]
-  }
-}
+    ],
+  },
+};
 
-export default nextConfig
+export default nextConfig;
