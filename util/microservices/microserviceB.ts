@@ -60,7 +60,7 @@ function rearrangeData(astroData: unknown): AstronautData {
 
 // Function to fetch and process astronaut data using Vercel proxy API route
 export async function fetchAstronautsInSpace(): Promise<AstronautData | null> {
-  const url = "/api/proxy-astros";  // Pointing to your Vercel API route
+  const url = "/api/proxy";  // Pointing to your Vercel API route
 
   try {
     const response = await fetch(url);

@@ -34,10 +34,10 @@ A standard responsive container that adjusts its max-width based on the screen s
 */
 .container {
   margin: 0 auto !important;
-  padding: 0;
+  padding: 0 1.5rem !important;
 
   @media (max-width: 750px) {
-    padding: 0 1rem !important;
+    /* padding: 0 1.5rem !important; */
   }
 
   @media (min-width: var(--mobile-width)) {

@@ -22,7 +22,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="container absolute left-0 right-0 z-[99] flex w-full items-center justify-between bg-transparent !pt-[2rem] text-[0.8rem] font-[300] text-light-blue">
+      <nav className="container absolute left-0 right-0 z-[99] flex w-full items-center justify-between bg-transparent !pt-[2rem] top-[1.5rem] text-[0.8rem] font-[300] text-light-blue">
         {/* Logo */}
         <p className="flex h-full items-center gap-[.5rem] font-[500] m:text-[1.05rem]">
           <Glitter />
