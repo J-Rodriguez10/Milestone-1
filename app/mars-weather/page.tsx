@@ -26,7 +26,7 @@ function MarsWeatherPage() {
     <div className="min-w-screen relative min-h-screen overflow-hidden">
       {/* Main Content Container */}
       <div className="container relative z-20 flex min-h-screen">
-        <main className="min-w-full pt-[10rem] font-[300]">
+        <main className="min-w-full pt-[11rem] font-[300]">
           {/* Header */}
           <h1 className="text-center text-[2rem] font-[600] italic text-green-yellow">
             Mars ForeCast

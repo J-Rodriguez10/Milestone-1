@@ -40,7 +40,7 @@ function AstronautsPage() {
     <div className="min-w-screen relative min-h-screen overflow-hidden">
       {/* Main Content Container */}
       <div className="container relative z-20 flex min-h-screen">
-        <main className="flex min-w-full justify-between pt-[10rem] font-[300] text-dark-blue s:mt-[2rem] s:flex-col s:gap-[2.5rem] s:pb-[4rem]">
+        <main className="flex min-w-full justify-between pt-[11rem] font-[300] text-dark-blue s:mt-[2rem] s:flex-col s:gap-[2.5rem] s:pb-[4rem]">
           {/* Left Container */}
           <div className="max-h-[500px] min-w-[40%]">
             {/* Title */}

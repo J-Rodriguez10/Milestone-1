@@ -42,7 +42,7 @@ function AsteroidsPage() {
     <div className="min-w-screen relative h-auto min-h-screen overflow-hidden">
       {/* Main Content Container */}
       <div className="container relative z-20 flex min-h-screen">
-        <main className="flex min-h-[750px] min-w-full justify-between gap-[20px] pt-[10rem] font-[300] text-dark-blue s:flex-col s:pb-[2rem]">
+        <main className="flex min-h-[750px] min-w-full justify-between gap-[20px] pt-[11rem] font-[300] text-dark-blue s:flex-col s:pb-[2rem]">
           {/* Left Container */}
           <div className="max-h-[500px] min-w-[40%]">
             {/* Title */}

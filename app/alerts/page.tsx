@@ -33,7 +33,7 @@ function AlertsPage() {
     <div className="min-w-screen relative min-h-screen overflow-hidden">
       {/* Main Content Container */}
       <div className="container relative z-20 flex min-h-screen">
-        <main className="flex min-h-[750px] min-w-full justify-between gap-[20px] pb-[1rem] pt-[10rem] font-[300] text-dark-blue s:flex-col s:gap-[3.5rem] s:pb-[4rem]">
+        <main className="flex min-h-[750px] min-w-full justify-between gap-[20px] pb-[1rem] pt-[11rem] font-[300] text-dark-blue s:flex-col s:gap-[3.5rem] s:pb-[4rem]">
           {/* Left Container */}
           <div className="max-h-[500px] min-w-[35%]">
             {/* Title */}

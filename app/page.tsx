@@ -10,7 +10,7 @@ function HomePage() {
 
   return (
     <div className="min-h-screen w-screen bg-custom-gradient-dark-blue">
-      <main className="relative pb-[4rem] pt-[8rem]">
+      <main className="relative pb-[4rem] pt-[10rem]">
         {/* Content Container */}
         <div className="container mx-auto flex flex-col items-start justify-start px-4">
           {/* Shuttle Icon */}
