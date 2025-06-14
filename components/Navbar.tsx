@@ -1,5 +1,6 @@
 "use client"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useState } from "react"
 
 import Glitter from "./Glitter"
@@ -24,13 +25,21 @@ function Navbar() {
     <>
       <nav className="container absolute left-0 right-0 z-[99] flex w-full items-center justify-between bg-transparent !pt-[2rem] top-[3rem] text-[0.8rem] font-[300] text-light-blue">
         {/* Logo */}
-        <p className="flex h-full items-center gap-[.5rem] font-[500] m:text-[1.05rem]">
-          <Glitter />
+        <a
+          href="https://github.com/J-Rodriguez10/Milestone-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-full items-center gap-[.5rem] font-[500] m:text-[1.05rem] text-light-blue transition-colors duration-200 hover:text-green-400"
+          title="View project on GitHub"
+        >
+          <Glitter variant="current" />
           AstroHub
-        </p>
+          <FontAwesomeIcon icon={faGithub} className="text-xl" />
+        </a>
 
         {/* Navlinks for larger screens */}
         <ul className="relative flex h-[2rem] items-center gap-[1.8rem] space-x-4 s:right-0 s:mt-[10px] s:hidden s:justify-end s:gap-[0.8rem] m:gap-[0.65rem] m:text-[0.7rem]">
+          {/* GitHub Icon */}
           <li>
             <NavLink href="/">Home</NavLink>
           </li>
